@@ -8,6 +8,8 @@ Based on: https://hub.docker.com/r/thawk/spacevim-base
 
 ## Usage
 
+You can use the ``dvim`` script to mount ``$HOME`` and use this image to edit you file like using a local VIM.
+
 ```sh
 $ docker run -it --rm -v $(pwd):/src thawk/spacevim-cpp test.cpp
 ```
