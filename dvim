@@ -3,12 +3,16 @@
 
 docker_image=thawk/spacevim-cpp
 
+mkdir -p "${HOME}/.cache/SpaceVim"
+mkdir -p "${HOME}/.local/share/nvim"
+
 docker run --rm \
     -it \
     -P \
     -u $(id -u ${USER}):$(id -g ${USER}) \
     -v "${HOME}":"${HOME}" \
     -v "${HOME}/.cache/SpaceVim":"/root/.cache/SpaceVim" \
+    -v "${HOME}/.local/share/nvim":"/root/.local/share/nvim" \
     "${docker_image}" \
     -- "$@"
 
