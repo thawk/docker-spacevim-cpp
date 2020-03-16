@@ -8,6 +8,7 @@ docker run --rm \
     -P \
     -u $(id -u ${USER}):$(id -g ${USER}) \
     -v "${HOME}":"${HOME}" \
-    -e "HOME=${HOME}"
+    -v "${HOME}/.cache/SpaceVim":"/root/.cache/SpaceVim" \
     "${docker_image}" \
     -- "$@"
+
