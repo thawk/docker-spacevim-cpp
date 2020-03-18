@@ -17,4 +17,3 @@ LABEL org.label-schema.build-date=$BUILD_DATE \
 WORKDIR /src
 VOLUME /src
 
-ENTRYPOINT ["/usr/bin/nvim"]

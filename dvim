@@ -13,6 +13,7 @@ docker run --rm \
     -v "${HOME}":"${HOME}" \
     -v "${HOME}/.cache/SpaceVim":"/root/.cache/SpaceVim" \
     -v "${HOME}/.local/share/nvim":"/root/.local/share/nvim" \
+    -w "${PWD}" \
     "${docker_image}" \
     -- "$@"
 
