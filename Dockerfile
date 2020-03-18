@@ -12,6 +12,10 @@ LABEL org.label-schema.build-date=$BUILD_DATE \
       org.label-schema.vcs-ref=$VCS_REF \
       org.label-schema.schema-version="1.0.0-rc1"
 
+RUN true &
+ && nvim --headless +'CocInstall -sync coc-json coc-html coc-css coc-clangd coc-python coc-vimlsp' +qall \
+ && true
+
 WORKDIR /src
 VOLUME /src
 
