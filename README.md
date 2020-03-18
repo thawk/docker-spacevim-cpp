@@ -11,10 +11,12 @@ Based on: https://hub.docker.com/r/thawk/spacevim-base
 You can use the ``dvim`` script to mount ``$HOME`` and use this image to edit you file like using a local VIM.
 
 ```sh
-$ docker run -it --rm -v $(pwd):/src thawk/spacevim-cpp test.cpp
+dvim some/file.txt
 ```
 
+Or you can simply run it:
+
 ```sh
-alias dnvim='docker run -it --rm -v $(pwd):/src thawk/spacevim-cpp "$@"'
+$ docker run -it --rm -v $(pwd):/src thawk/spacevim-cpp test.cpp
 ```
 
