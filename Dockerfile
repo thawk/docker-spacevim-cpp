@@ -7,8 +7,6 @@ FROM thawk/spacevim-base:latest
 ARG BUILD_DATE
 ARG VCS_REF
 
-ENV HOME=/root
-
 LABEL org.label-schema.build-date=$BUILD_DATE \
       org.label-schema.vcs-url="https://github.com/thawk/docker-spacevim-cpp.git" \
       org.label-schema.vcs-ref=$VCS_REF \
