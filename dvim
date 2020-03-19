@@ -11,8 +11,8 @@ docker run --rm \
     -P \
     -u $(id -u ${USER}):$(id -g ${USER}) \
     -v "${HOME}":"${HOME}" \
-    -v "${HOME}/.cache/SpaceVim":"/root/.cache/SpaceVim" \
-    -v "${HOME}/.local/share/nvim":"/root/.local/share/nvim" \
+    -v "${HOME}/.cache/SpaceVim":"/myhome/.cache/SpaceVim" \
+    -v "${HOME}/.local/share/nvim":"/myhome/.local/share/nvim" \
     -w "${PWD}" \
     "${docker_image}" \
     -- "$@"

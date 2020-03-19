@@ -14,6 +14,8 @@ LABEL org.label-schema.build-date=$BUILD_DATE \
 
 RUN true \
  && nvim --headless +'CocInstall -sync coc-json coc-html coc-css coc-clangd coc-python coc-vimlsp' +qall \
+ && chmod -R a+rw $HOME/.config \
+ && (find $HOME/.config -type d | xargs chmod a+rwx) \
  && true
 
 WORKDIR /src
