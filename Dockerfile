@@ -13,6 +13,7 @@ LABEL org.label-schema.build-date=$BUILD_DATE \
       org.label-schema.schema-version="1.0.0-rc1"
 
 RUN true \
+ && umask 0000 \
  && nvim --headless +'CocInstall -sync coc-json coc-html coc-css coc-clangd coc-python coc-vimlsp' +qall \
  && chmod -R a+rw $HOME/.config \
  && (find $HOME/.config -type d | xargs chmod a+rwx) \

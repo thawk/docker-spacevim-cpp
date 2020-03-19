@@ -3,6 +3,8 @@
 
 docker_image=thawk/spacevim-cpp
 
+umask 022
+
 mkdir -p "${HOME}/.cache/SpaceVim"
 mkdir -p "${HOME}/.local/share/nvim"
 
