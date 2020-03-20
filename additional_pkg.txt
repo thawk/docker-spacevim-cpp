@@ -5,3 +5,4 @@ llvm-toolset-7-clang
 llvm-toolset-7-clang-tools-extra
 perf
 strace
+valgrind
