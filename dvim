@@ -13,9 +13,12 @@ docker run --rm \
     -P \
     -u $(id -u ${USER}):$(id -g ${USER}) \
     -v "${HOME}":"${HOME}" \
-    -v "${HOME}/.cache/SpaceVim":"/myhome/.cache/SpaceVim" \
-    -v "${HOME}/.local/share/nvim":"/myhome/.local/share/nvim" \
+    -v "${HOME}/.cache/SpaceVim/backup":"/myhome/.cache/SpaceVim/backup" \
+    -v "${HOME}/.cache/SpaceVim/swap":"/myhome/.cache/SpaceVim/swap" \
+    -v "${HOME}/.cache/SpaceVim/tags":"/myhome/.cache/SpaceVim/tags" \
+    -v "${HOME}/.cache/SpaceVim/undofile":"/myhome/.cache/SpaceVim/undofile" \
     -w "${PWD}" \
     "${docker_image}" \
     -- "$@"
 
+    # -v "${HOME}/.local/share/nvim":"/myhome/.local/share/nvim" \

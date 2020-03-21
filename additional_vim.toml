@@ -3,20 +3,20 @@
     enable = 'executable("global")'
 
 [[layers]]
-name = 'tags'
-enable = true
+    name = 'tags'
+    enable = true
 
 [[layers]]
-name = 'lang#c'
-enable = true
+    name = 'lang#c'
+    enable = true
 
 [[layers]]
-name = 'lang#javascript'
-enable = true
+    name = 'lang#javascript'
+    enable = true
 
 [[layers]]
-name = 'lang#python'
-enable = true
+    name = 'lang#python'
+    enable = true
 
 [[layers]]
     name = 'lang#sh'
@@ -28,16 +28,16 @@ enable = true
     ]
 
 [[layers]]
-name = 'lang#toml'
-enable = true
+    name = 'lang#toml'
+    enable = true
 
 [[layers]]
-name = 'lang#vim'
-enable = true
+    name = 'lang#vim'
+    enable = true
 
 [[layers]]
-name = 'lang#xml'
-enable = true
+    name = 'lang#xml'
+    enable = true
 
 [[layers]]
     name = 'lang#markdown'
@@ -49,11 +49,11 @@ enable = true
 [[layers]]
     name = 'lsp'
     enable = true
-    filetypes = [
-        'c',
-        'cpp',
-        'python',
-    ]
+    # filetypes = [
+    #     'c',
+    #     'cpp',
+    #     'python',
+    # ]
     #   [layers.override_cmd]
     #     c = ['ccls', '--log-file=/tmp/ccls.log']
     #     cpp = ['ccls', '--log-file=/tmp/ccls.log']
