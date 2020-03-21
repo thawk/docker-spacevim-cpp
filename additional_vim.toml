@@ -49,11 +49,11 @@
 [[layers]]
     name = 'lsp'
     enable = true
-    # filetypes = [
-    #     'c',
-    #     'cpp',
-    #     'python',
-    # ]
+    filetypes = [
+        'c',
+        'cpp',
+        'python',
+    ]
     #   [layers.override_cmd]
     #     c = ['ccls', '--log-file=/tmp/ccls.log']
     #     cpp = ['ccls', '--log-file=/tmp/ccls.log']
