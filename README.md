@@ -10,13 +10,46 @@ Based on: https://hub.docker.com/r/thawk/spacevim-base
 
 You can use the ``dvim`` script to mount ``$HOME`` and use this image to edit you file like using a local VIM.
 
-```sh
-dvim some/file.txt
-```
+* ``dvim``
 
-Or you can simply run it:
+  ```sh
+  #!/bin/bash
+  # Command for running neovim
+  
+  docker_image=thawk/spacevim-cpp
+  
+  umask 022
+  
+  mkdir -p "${HOME}/.cache/SpaceVim"
+  mkdir -p "${HOME}/.local/share/nvim"
+  
+  docker run --rm \
+      -it \
+      -P \
+      -u $(id -u ${USER}):$(id -g ${USER}) \
+      -v "${HOME}":"${HOME}" \
+      -v "${HOME}/.cache/SpaceVim/backup":"/myhome/.cache/SpaceVim/backup" \
+      -v "${HOME}/.cache/SpaceVim/swap":"/myhome/.cache/SpaceVim/swap" \
+      -v "${HOME}/.cache/SpaceVim/tags":"/myhome/.cache/SpaceVim/tags" \
+      -v "${HOME}/.cache/SpaceVim/undofile":"/myhome/.cache/SpaceVim/undofile" \
+      -w "${PWD}" \
+      "${docker_image}" \
+      -- "$@"
+  
+      # -v "${HOME}/.local/share/nvim":"/myhome/.local/share/nvim" \
+  ```
 
-```sh
-$ docker run -it --rm -v $(pwd):/src thawk/spacevim-cpp test.cpp
-```
+  It will mount your home to the corresponded path, and mount some key directory of ``SpaceVim`` to work like locally.
+
+* usage
+
+  ```sh
+  dvim some/file.txt
+  ```
+
+* Or you can simply run it:
+
+  ```sh
+  $ docker run -it --rm -v $(pwd):/src thawk/spacevim-cpp test.cpp
+  ```
 
