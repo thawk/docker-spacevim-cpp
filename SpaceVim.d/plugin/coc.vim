@@ -6,14 +6,14 @@ call coc#config('coc.preferences', {
             \ "extensionUpdateCheck": "never",
 			\})
 
-let s:coc_extensions = [
-			\ 'coc-dictionary',
-			\ 'coc-json',
-			\ 'coc-ultisnips',
-			\ 'coc-tag',
-            \ 'coc-vimlsp',
-			\]
-
-for extension in s:coc_extensions
-	call coc#add_extension(extension)
-endfor
+"let s:coc_extensions = [
+"			\ 'coc-dictionary',
+"			\ 'coc-json',
+"			\ 'coc-ultisnips',
+"			\ 'coc-tag',
+"            \ 'coc-vimlsp',
+"			\]
+"
+"for extension in s:coc_extensions
+"	call coc#add_extension(extension)
+"endfor
