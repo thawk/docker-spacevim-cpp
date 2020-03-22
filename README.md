@@ -18,25 +18,34 @@ You can use the ``dvim`` script to mount ``$HOME`` and use this image to edit yo
   
   docker_image=thawk/spacevim-cpp
   
-  umask 022
+  cache_home="${XDG_CACHE_HOME:-${HOME}/.cache}"
+  data_home="${XDG_DATA_HOME:-${HOME}/.local/share}"
+  shada_path="${data_home}/nvim/shada"
   
-  mkdir -p "${HOME}/.cache/SpaceVim"
-  mkdir -p "${HOME}/.local/share/nvim"
+  mkdir -p "${cache_home}"/{neomru,neoyank}
+  mkdir -p "${cache_home}"/SpaceVim/{backup,swap,tags,undofile}
+  
+  if [[ ! -d "${shada_path}" ]]
+  then
+      mkdir -p "${shada_path}"
+      chmod 700 "${shada_path}"
+  fi
   
   docker run --rm \
       -it \
       -P \
       -u $(id -u ${USER}):$(id -g ${USER}) \
       -v "${HOME}":"${HOME}" \
-      -v "${HOME}/.cache/SpaceVim/backup":"/myhome/.cache/SpaceVim/backup" \
-      -v "${HOME}/.cache/SpaceVim/swap":"/myhome/.cache/SpaceVim/swap" \
-      -v "${HOME}/.cache/SpaceVim/tags":"/myhome/.cache/SpaceVim/tags" \
-      -v "${HOME}/.cache/SpaceVim/undofile":"/myhome/.cache/SpaceVim/undofile" \
+      -v "${cache_home}/SpaceVim/backup":"/myhome/.cache/SpaceVim/backup" \
+      -v "${cache_home}/SpaceVim/swap":"/myhome/.cache/SpaceVim/swap" \
+      -v "${cache_home}/SpaceVim/tags":"/myhome/.cache/SpaceVim/tags" \
+      -v "${cache_home}/SpaceVim/undofile":"/myhome/.cache/SpaceVim/undofile" \
+      -v "${cache_home}/neomru":"/myhome/.cache/neomru" \
+      -v "${cache_home}/neoyank":"/myhome/.cache/neoyank" \
+      -v "${data_home}/nvim/shada":"/myhome/.local/share/nvim/shada" \
       -w "${PWD}" \
       "${docker_image}" \
       -- "$@"
-  
-      # -v "${HOME}/.local/share/nvim":"/myhome/.local/share/nvim" \
   ```
 
   It will mount your home to the corresponded path, and mount some key directory of ``SpaceVim`` to work like locally.
@@ -44,7 +53,7 @@ You can use the ``dvim`` script to mount ``$HOME`` and use this image to edit yo
 * usage
 
   ```sh
-  dvim some/file.txt
+  dvim path/to/file.txt
   ```
 
 * Or you can simply run it:
