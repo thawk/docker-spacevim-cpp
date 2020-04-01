@@ -1,9 +1,12 @@
 gdb
 global
 global-ctags
+cscope
+ctags
 llvm-toolset-7-clang
 llvm-toolset-7-clang-tools-extra
 perf
 strace
 valgrind
 python3-devel
+libquadmath_devel
