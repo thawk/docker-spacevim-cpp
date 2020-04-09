@@ -6,8 +6,9 @@ cscope
 ctags
 llvm-toolset-7-clang
 llvm-toolset-7-clang-tools-extra
+llvm-toolset-7-clang-analyzer
 perf
 strace
 valgrind
 python3-devel
-libquadmath_devel
+libquadmath-devel
