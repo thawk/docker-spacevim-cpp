@@ -1,0 +1,4 @@
+import common ;
+local CCACHE = [ common.find-tool ccache ] ;
+using gcc : : $(CCACHE) g++ : <boost.locale.icu>off ;
+

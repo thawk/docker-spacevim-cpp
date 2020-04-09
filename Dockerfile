@@ -31,6 +31,9 @@ RUN true \
 #  && rm -rf boost_${BOOST_VERSION//./_} \
 #  && true
 
+COPY localbin/* $HOME/localbin/
+COPY user-config.jam $HOME/
+
 WORKDIR /src
 VOLUME /src
 
